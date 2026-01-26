@@ -1,0 +1,12 @@
+:root {
+    --light-color: #FFFFFF;
+    --dark-color: #101010;
+    --accent-color: #EBAC0D;
+    --accent2-color: #A85F00;
+    --accent-color-transperent: rgba(235, 173, 50, 0.5);
+    --accent2-color-transperent: rgba(168, 95, 0, 0.5);
+    --border-radius-main-elements: 20px;
+    --titles-header-footer: clamp(20px, 1.5vw, 48px);
+    --titles-of-sections: clamp(18px, 1.48vw, 42px);
+    --font-weight-titles: bold;
+}
