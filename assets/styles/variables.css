@@ -6,7 +6,9 @@
     --accent-color-transperent: rgba(235, 173, 50, 0.5);
     --accent2-color-transperent: rgba(168, 95, 0, 0.5);
     --border-radius-main-elements: 20px;
-    --titles-header-footer: clamp(20px, 1.5vw, 48px);
+    --titles-header-footer: clamp(20px, 2vw, 64px);
     --titles-of-sections: clamp(18px, 1.48vw, 42px);
+    --p-inform: clamp(16px, 1.25vw, 32px);
     --font-weight-titles: bold;
+    --main-transition: 0.4s ease;
 }

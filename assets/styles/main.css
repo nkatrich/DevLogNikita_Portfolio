@@ -1,0 +1,526 @@
+body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-family: 'Roboto';
+    
+}
+
+body.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+img {
+    width: 30px;
+}
+
+.header {
+    height: 90px;
+    width: 100%;
+    background-color: var(--accent2-color);
+    color: var(--light-color);
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    transition: height var(--main-transition), width var(--main-transition), border-radius var(--main-transition), transform var(--main-transition);
+}
+
+.header.moved {
+    height: 70px;
+    width: calc(100% - 50px);
+    transform: translate(25px, 25px);
+    background-color: var(--accent2-color-transperent);
+    backdrop-filter: blur(4px);
+    border-radius:  0 0 20px 20px;
+}
+
+.header.moved::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(0deg, var(--accent2-color-transperent), rgba(168, 95, 0, 0));
+    pointer-events: none;
+}
+
+.header-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.div-logo-header-footer {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius-main-elements);
+    font-size: var(--titles-header-footer);
+    font-weight: var(--font-weight-titles);
+    padding: 10px;
+}
+
+.logo-part-1 {
+    font-family: 'Protest Guerrilla';
+    letter-spacing: 2px;
+}
+
+.logo-part-2 {
+    font-family: 'Roboto';
+}
+
+.div-toggle-theme {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.div-toggle-theme img {
+    transform: translateX(10px);
+}
+
+.div-toggle-theme.dark img {
+    transform: translateX(-40px);
+}
+
+.main {
+    margin: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+section {
+    margin: 50px 0;
+}
+
+.div-title-my-projects, .div-title-my-skills, .div-title-my-certificates {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title-my-projects, .title-my-skills, .title-my-certificates {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    font-size: var(--titles-of-sections);
+    font-weight: var(--font-weight-titles);
+    border-radius: var(--border-radius-main-elements);
+    padding: 10px;
+}
+
+.about-me-and-img-about-me {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-about-me {
+    font-size: var(--titles-of-sections);
+}
+
+.greeting-about-me {
+    color: var(--accent2-color);
+}
+
+.specialisation-about-me {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    border-radius: var(--border-radius-main-elements);
+    padding: 5px;
+    line-height: 1.7;
+}
+
+.div-img-about-me {
+    display: flex;
+    justify-content: center;
+}
+
+.div-img-about-me img {
+    width: 100%;
+    max-width: 450px;
+}
+
+.block-of-slider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    overflow: hidden;
+}
+
+.card-of-project {
+    background-color: var(--accent2-color);
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: var(--border-radius-main-elements);
+}
+
+.div-img-of-project {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.div-img-of-project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: var(--border-radius-main-elements);
+}
+
+.card-of-project:nth-child(1) .div-img-of-project::before {
+    background-image: url(../images/content-of-pages/preview_projects/MEDEBOL_preview.webp);
+}
+
+.card-of-project:nth-child(2) .div-img-of-project::before {
+    background-image: url(../images/content-of-pages/preview_projects/game-js-what-where-when_preview.webp);
+}
+
+.card-of-project:nth-child(3) .div-img-of-project::before {
+    background-image: url(../images/content-of-pages/preview_projects/ToCalc_preview.webp);
+}
+
+.card-of-project:nth-child(4) .div-img-of-project::before {
+    background-image: url(../images/content-of-pages/preview_projects/JustQuotes_preview.webp);
+}
+
+.div-img-of-project::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color-transperent);
+    backdrop-filter: blur(4px);
+    border-radius: var(--border-radius-main-elements);
+    z-index: 1;
+}
+
+.div-img-of-project img {
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+}
+
+.div-title-of-project, .div-decs-of-project, .div-project-stack, .div-links-for-projects {
+    margin: 10px;
+}
+
+.div-title-of-project {
+    display: inline-block;
+}
+
+.h2-title-of-project {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    font-size: var(--titles-of-sections);
+    font-weight: var(--font-weight-titles);
+    padding: 10px;
+    border-radius: var(--border-radius-main-elements);
+    margin: 0;
+}
+
+.div-decs-of-project {
+
+}
+
+.p-decs-of-project {
+    margin: 0;
+    color: var(--light-color);
+    font-size: var(--p-inform);
+    font-weight: var(--font-weight-titles);
+}
+
+.div-project-stack {
+    display: flex;
+    align-items: center;
+    color: var(--light-color);
+    font-size: var(--titles-of-sections);
+    font-weight: var(--font-weight-titles);
+}
+
+.h3-project-stack {
+    margin: 0;
+}
+
+.show-stack {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.show-stack img {
+    width: 40px;
+    height: 40px;
+}
+
+.div-links-for-projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.link-for-project, .link-about-telegram {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    font-size: var(--p-inform);
+    font-weight: var(--font-weight-titles);
+    padding: 5px;
+    border-radius: var(--border-radius-main-elements);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.div-buttons-for-slider {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.slider-btn-left, .slider-btn-right {
+    background-color: var(--accent-color);
+    padding: 10px;
+    border-radius: var(--border-radius-main-elements);
+    cursor: pointer;
+}
+
+.slider-btn-left img, .slider-btn-right img {
+    width: 60px;
+    height: 40px
+}
+
+.block-of-my-skills {
+    column-width: 270px;
+    column-gap: 10px;
+    margin: 0 auto;
+}
+
+.div-title-of-skills {
+    width: 100%;
+    display: inline-flex;
+}
+
+.title-of-skills {
+    background-color: var(--accent2-color);
+    color: var(--light-color);
+    font-size: var(--titles-of-sections);
+    font-weight: var(--font-weight-titles);
+    border-radius: var(--border-radius-main-elements);
+    padding: 10px;
+}
+
+.list-of-skills {
+    list-style: none;
+    break-inside: avoid;
+}
+
+.list-of-skills li {
+    font-size: var(--p-inform);
+    color: var(--dark-color);
+}
+
+.list-of-skills.dark li {
+    color: var(--light-color);
+}
+
+.div-img-certificate {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.div-img-certificate img {
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    object-fit: contain;
+}
+
+.block-of-mention-about-telegram-channel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-img-logo-with-telegram {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.div-img-logo-with-telegram img {
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    border-radius: var(--border-radius-main-elements);
+}
+
+.div-block-about-telegram {
+    width: 100%;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.block-about-telegram {
+    background-color: var(--accent2-color);
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
+    margin: 0 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.block-about-telegram::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url(../icons/social_media/Telegram.svg);
+    background-size: 350px 350px;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    background-position: center;
+    transform: translateX(150px);
+    z-index: -1;
+}
+
+.p-about-telegram {
+    color: var(--light-color);
+    font-size: var(--p-inform);
+}
+
+.div-link-about-telegram {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    overflow-x: clip;
+}
+
+.div-block-my-contacts {
+    position: relative;
+}
+
+.div-block-my-contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-90deg, var(--accent-color-transperent), rgba(168, 95, 0, 0));
+}
+
+.div-block-my-contacts::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color-transperent), rgba(168, 95, 0, 0));
+}
+
+.block-my-contacts {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.block-my-contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url(../icons/simpe_UI_elements/decoration_DevLogNikita.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
+}
+
+.block-my-contacts::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-image: url(../icons/simpe_UI_elements/decoration_DevLogNikita.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scaleX(-1);
+    z-index: 3;
+}
+
+.p-block-my-contacts {
+    font-size: var(--titles-of-sections);
+    font-weight: var(--font-weight-titles);
+}
+
+.div-contacts-block-my-contacts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.div-contacts-block-my-contacts img {
+    width: 60px;
+    height: 60px;
+}
+
+@media (min-width: 768px) {
+    .header.moved {
+        width: calc(100% - 300px);
+        transform: translate(150px, 25px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .header.moved {
+        width: calc(100% - 500px);
+        transform: translate(250px, 25px);
+    }
+}
