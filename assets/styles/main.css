@@ -2,6 +2,7 @@ body {
     background-color: var(--light-color);
     color: var(--dark-color);
     font-family: 'Roboto', sans-serif;
+    -webkit-tap-highlight-color: transparent;
     transition: background-color var(--main-transition), color var(--main-transition);
 }
 
@@ -145,6 +146,7 @@ section {
 .div-about-me {
     width: 100%;
     max-width: 300px;
+    padding-left: 15px;
     overflow-wrap: break-word;
     animation: greeting1 1 1s ease;
 }
@@ -179,19 +181,10 @@ section {
 .div-img-about-me {
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transform: translateY(-20px);
     animation: greeting2 1 1s ease;
-    transition: transform 0.4s linear;
-}
-
-@keyframes greeting2 {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    transition: transform 0.4s linear, opacity 0.4s linear;
 }
 
 .div-img-about-me img {
@@ -296,10 +289,6 @@ section {
     border-radius: var(--border-radius-main-elements);
     box-shadow: 0 0 20px var(--accent-color);
     margin: 0;
-}
-
-.div-decs-of-project {
-
 }
 
 .p-decs-of-project {
@@ -599,6 +588,12 @@ button:hover, .div-contacts-block-my-contacts a:hover, .link-for-project:hover, 
 
 .div-contacts-block-my-contacts a:nth-child(3):hover::before {
     content: 'GitHub';
+}
+
+/* active effects */
+
+button:active, .div-contacts-block-my-contacts a:active, .link-for-project:active, .link-about-telegram:active, .div-toggle-theme:active {
+    transform: scale(0.90);
 }
 
 @media (min-width: 768px) {

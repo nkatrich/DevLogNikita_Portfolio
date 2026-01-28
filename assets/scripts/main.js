@@ -30,13 +30,28 @@ document.addEventListener('scroll', () => {
 
 // logic of theme
 
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.toggle('dark');
+    divToggleTheme.classList.toggle('dark');
+    listOfSkills.forEach(el => {
+        el.classList.toggle('dark');
+    })
+}
+
 divToggleTheme.addEventListener('click', () => {
     body.classList.toggle('dark');
     divToggleTheme.classList.toggle('dark');
     listOfSkills.forEach(el => {
         el.classList.toggle('dark');
     })
+    
+    if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark')
+    } else {
+        localStorage.setItem('theme', 'light')
+    }
 })
+
 
 // slider
 
@@ -89,11 +104,16 @@ function moveSliderCertificates() {
 
 // img greeting
 
-document.addEventListener("mousemove", (e) => {
-  const distance = 0.1;
+document.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
 
-  const x = (window.innerWidth / 2 - e.pageX) * distance;
-  const y = (window.innerHeight / 2 - e.pageY) * distance;
+    const distance = 0.1;
 
-  divImgAboutMe.style.transform = `translate(${x}px, ${y}px)`;
+    const x = (window.innerWidth / 2 - e.pageX) * distance;
+    const y = (window.innerHeight / 2 - e.pageY) * distance;
+
+    divImgAboutMe.style.transform = `translate(${x}px, ${y}px)`;
 });
+
+divImgAboutMe.style.transform = `translateY(0)`;
+divImgAboutMe.style.opacity = 1;
