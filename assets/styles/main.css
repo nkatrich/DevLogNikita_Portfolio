@@ -1,13 +1,17 @@
 body {
     background-color: var(--light-color);
     color: var(--dark-color);
-    font-family: 'Roboto';
-    
+    font-family: 'Roboto', sans-serif;
+    transition: background-color var(--main-transition), color var(--main-transition);
 }
 
 body.dark {
     background-color: var(--dark-color);
     color: var(--light-color);
+}
+
+.div-about-me h1, .list-of-skills li, .div-toggle-theme, .slider-btn-left-projects, .slider-btn-right-projects, .slider-btn-left-certificates, .slider-btn-right-certificates, .div-contacts-block-my-contacts a, .link-about-telegram, .link-for-project {
+    transition: color var(--main-transition), transform var(--main-transition);
 }
 
 img {
@@ -22,19 +26,10 @@ img {
     position: fixed;
     inset: 0;
     z-index: 10;
-    transition: height var(--main-transition), width var(--main-transition), border-radius var(--main-transition), transform var(--main-transition);
+    transition: background-color var(--main-transition), border-radius var(--main-transition), transform var(--main-transition);
 }
 
-.header.moved {
-    height: 70px;
-    width: calc(100% - 50px);
-    transform: translate(25px, 25px);
-    background-color: var(--accent2-color-transperent);
-    backdrop-filter: blur(4px);
-    border-radius:  0 0 20px 20px;
-}
-
-.header.moved::after {
+.header::after {
     content: '';
     position: absolute;
     bottom: 100%;
@@ -43,6 +38,13 @@ img {
     height: 25px;
     background: linear-gradient(0deg, var(--accent2-color-transperent), rgba(168, 95, 0, 0));
     pointer-events: none;
+}
+
+.header.moved {
+    transform: scale(0.9) translateY(25px);
+    background-color: var(--accent2-color-transperent);
+    backdrop-filter: blur(4px);
+    border-radius:  0 0 20px 20px;
 }
 
 .header-container {
@@ -84,10 +86,23 @@ img {
 
 .div-toggle-theme img {
     transform: translateX(10px);
+    transition: transform var(--main-transition);
 }
 
-.div-toggle-theme.dark img {
-    transform: translateX(-40px);
+.div-toggle-theme img:nth-child(1) {
+    transform: translate(10px, 0px);
+}
+
+.div-toggle-theme.dark img:nth-child(1) {
+    transform: translate(40px, -40px);
+}
+
+.div-toggle-theme img:nth-child(2) {
+    transform: translate(-60px, 40px);
+}
+
+.div-toggle-theme.dark img:nth-child(2) {
+    transform: translate(-40px, 0px);
 }
 
 .main {
@@ -122,12 +137,31 @@ section {
 }
 
 .about-me-and-img-about-me {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
 }
 
 .div-about-me {
-    font-size: var(--titles-of-sections);
+    width: 100%;
+    max-width: 300px;
+    overflow-wrap: break-word;
+    animation: greeting1 1 1s ease;
+}
+
+@keyframes greeting1 {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.div-about-me h1 {
+    font-size: var(--title-greeting);
 }
 
 .greeting-about-me {
@@ -145,6 +179,19 @@ section {
 .div-img-about-me {
     display: flex;
     justify-content: center;
+    animation: greeting2 1 1s ease;
+    transition: transform 0.4s linear;
+}
+
+@keyframes greeting2 {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .div-img-about-me img {
@@ -157,13 +204,14 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .slider {
     width: 100%;
     max-width: 700px;
     display: flex;
-    overflow: hidden;
+    transition: transform var(--main-transition);
 }
 
 .card-of-project {
@@ -171,6 +219,8 @@ section {
     width: 100%;
     flex-shrink: 0;
     border-radius: var(--border-radius-main-elements);
+    position: relative;
+    overflow: hidden;
 }
 
 .div-img-of-project {
@@ -189,6 +239,7 @@ section {
     height: 100%;
     background-size: cover;
     border-radius: var(--border-radius-main-elements);
+    z-index: 2;
 }
 
 .card-of-project:nth-child(1) .div-img-of-project::before {
@@ -216,7 +267,7 @@ section {
     background-color: var(--accent-color-transperent);
     backdrop-filter: blur(4px);
     border-radius: var(--border-radius-main-elements);
-    z-index: 1;
+    z-index: 3;
 }
 
 .div-img-of-project img {
@@ -225,7 +276,7 @@ section {
     max-width: 500px;
     object-fit: contain;
     position: relative;
-    z-index: 2;
+    z-index: 4;
 }
 
 .div-title-of-project, .div-decs-of-project, .div-project-stack, .div-links-for-projects {
@@ -243,6 +294,7 @@ section {
     font-weight: var(--font-weight-titles);
     padding: 10px;
     border-radius: var(--border-radius-main-elements);
+    box-shadow: 0 0 20px var(--accent-color);
     margin: 0;
 }
 
@@ -305,14 +357,14 @@ section {
     gap: 10px;
 }
 
-.slider-btn-left, .slider-btn-right {
+.slider-btn-left-projects, .slider-btn-right-projects, .slider-btn-left-certificates, .slider-btn-right-certificates {
     background-color: var(--accent-color);
     padding: 10px;
     border-radius: var(--border-radius-main-elements);
     cursor: pointer;
 }
 
-.slider-btn-left img, .slider-btn-right img {
+.slider-btn-left-projects img, .slider-btn-right-projects img, .slider-btn-left-certificates img, .slider-btn-right-certificates img {
     width: 60px;
     height: 40px
 }
@@ -445,6 +497,8 @@ section {
     width: 100%;
     height: 100%;
     background: linear-gradient(-90deg, var(--accent-color-transperent), rgba(168, 95, 0, 0));
+    filter: blur(60px);
+    transform: scale(1.5) translateY(-15px);
 }
 
 .div-block-my-contacts::after {
@@ -455,6 +509,8 @@ section {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, var(--accent-color-transperent), rgba(168, 95, 0, 0));
+    filter: blur(60px);
+    transform: scale(1.5) translateY(15px);
 }
 
 .block-my-contacts {
@@ -497,6 +553,7 @@ section {
 .p-block-my-contacts {
     font-size: var(--titles-of-sections);
     font-weight: var(--font-weight-titles);
+    text-align: center;
 }
 
 .div-contacts-block-my-contacts {
@@ -506,21 +563,72 @@ section {
     gap: 20px;
 }
 
+.div-contacts-block-my-contacts a {
+    position: relative;
+}
+
 .div-contacts-block-my-contacts img {
     width: 60px;
     height: 60px;
 }
 
+/* hover effects */
+
+button:hover, .div-contacts-block-my-contacts a:hover, .link-for-project:hover, .link-about-telegram:hover, .div-toggle-theme:hover {
+    transform: scale(1.07);
+}
+
+.div-contacts-block-my-contacts a::before {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    color: var(--light-color);
+    background-color: var(--accent2-color);
+    padding: 5px;
+    border-radius: var(--border-radius-main-elements);
+    transform: translate(-50%, 0);
+}
+
+.div-contacts-block-my-contacts a:nth-child(1):hover::before {
+    content: 'Telegram';
+}
+
+.div-contacts-block-my-contacts a:nth-child(2):hover::before {
+    content: 'Email';
+}
+
+.div-contacts-block-my-contacts a:nth-child(3):hover::before {
+    content: 'GitHub';
+}
+
 @media (min-width: 768px) {
-    .header.moved {
-        width: calc(100% - 300px);
-        transform: translate(150px, 25px);
+    .about-me-and-img-about-me {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .div-img-about-me img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .block-of-mention-about-telegram-channel {
+        flex-direction: row;
+    }
+
+    .block-about-telegram  {
+        margin: 0;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .div-img-logo-with-telegram img {
+        border-radius: 20px 0 0 20px;
     }
 }
 
 @media (min-width: 1024px) {
-    .header.moved {
-        width: calc(100% - 500px);
-        transform: translate(250px, 25px);
+    .block-my-contacts {
+        flex-direction: row;
+        align-items: center;
     }
 }

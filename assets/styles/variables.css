@@ -8,6 +8,7 @@
     --border-radius-main-elements: 20px;
     --titles-header-footer: clamp(20px, 2vw, 64px);
     --titles-of-sections: clamp(18px, 1.48vw, 42px);
+    --title-greeting: clamp(22px, 2.3vw, 64px);
     --p-inform: clamp(16px, 1.25vw, 32px);
     --font-weight-titles: bold;
     --main-transition: 0.4s ease;
