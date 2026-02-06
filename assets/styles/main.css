@@ -581,7 +581,13 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div-social-media-my-contacts {
+    display: flex;
+    gap: 10px;
 }
 
 .div-contacts-block-my-contacts a {
@@ -593,13 +599,37 @@ section {
     height: 60px;
 }
 
+.div-phone-number-my-contacts {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    position: relative;
+}
+
+.div-phone-number-my-contacts a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-titles);
+    padding: 5px;
+    overflow: hidden;
+}
+
+.phone-number-my-contacts {
+    color: var(--accent2-color);
+    font-size: var(--p-inform);
+}
+
+.div-phone-number-my-contacts a, .phone-number-my-contacts {
+    font-weight: var(--font-weight-titles);
+}
+
 /* hover effects */
 
-button:hover, .div-contacts-block-my-contacts a:hover, .link-for-project:hover, .link-about-telegram:hover, .div-toggle-theme:hover {
+button:hover, .div-social-media-my-contacts a:hover, .link-for-project:hover, .link-about-telegram:hover, .div-toggle-theme:hover {
     transform: scale(1.07);
 }
 
-.div-contacts-block-my-contacts a::before {
+.div-social-media-my-contacts a::before {
     position: absolute;
     top: -50%;
     left: 50%;
@@ -610,16 +640,37 @@ button:hover, .div-contacts-block-my-contacts a:hover, .link-for-project:hover, 
     transform: translate(-50%, 0);
 }
 
-.div-contacts-block-my-contacts a:nth-child(1):hover::before {
+.div-phone-number-my-contacts a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--accent2-color);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: transform var(--main-transition), border-radius 1s;
+}
+
+.div-social-media-my-contacts a:nth-child(1):hover::before {
     content: 'Telegram';
 }
 
-.div-contacts-block-my-contacts a:nth-child(2):hover::before {
+.div-social-media-my-contacts a:nth-child(2):hover::before {
     content: 'Email';
 }
 
-.div-contacts-block-my-contacts a:nth-child(3):hover::before {
+.div-social-media-my-contacts a:nth-child(3):hover::before {
     content: 'GitHub';
+}
+
+.div-phone-number-my-contacts a:hover {
+    transform: scale(1.07);
+}
+
+.div-phone-number-my-contacts a:hover::before {
+    transform: translateY(-100%);
+    border-radius: var(--border-radius-main-elements);
 }
 
 /* active effects */
