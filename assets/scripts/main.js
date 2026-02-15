@@ -81,9 +81,9 @@ sliderBtnRightCertificates.addEventListener('click', () => {
 function moveSliderProjects() {
     const currentPosSlider = slider[0].offsetWidth;
     if (currentIndexOfSliderProjects == -1) {
-        currentIndexOfSliderProjects = 3;
+        currentIndexOfSliderProjects = 4;
     }
-    else if (currentIndexOfSliderProjects == 4) {
+    else if (currentIndexOfSliderProjects == 5) {
         currentIndexOfSliderProjects = 0;
     }
     
