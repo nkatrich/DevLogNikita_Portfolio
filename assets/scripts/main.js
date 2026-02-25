@@ -20,7 +20,7 @@
 document.addEventListener('scroll', () => {
     const currentPos = window.pageYOffset;
     
-    if (currentPos >= 125) {
+    if (currentPos >= 200) {
         header.classList.add('moved');
     }
     else {

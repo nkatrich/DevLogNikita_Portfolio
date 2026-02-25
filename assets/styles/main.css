@@ -24,6 +24,7 @@ img {
     width: 100%;
     background-color: var(--accent2-color);
     color: var(--light-color);
+    backdrop-filter: blur(6px);
     position: fixed;
     inset: 0;
     z-index: 10;
@@ -44,7 +45,6 @@ img {
 .header.moved {
     transform: scale(0.9) translateY(25px);
     background-color: var(--accent2-color-transperent);
-    backdrop-filter: blur(4px);
     border-radius:  0 0 20px 20px;
 }
 
