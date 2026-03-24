@@ -117,3 +117,18 @@ document.addEventListener('pointermove', (e) => {
 
 divImgAboutMe.style.transform = `translateY(0)`;
 divImgAboutMe.style.opacity = 1;
+
+// change lang
+
+const langBtn = document.querySelector('.dropdown-btn');
+const contentLang = document.querySelector('.dropdown-content');
+
+langBtn.addEventListener('click', () => {
+  if (contentLang.style.maxHeight) {
+    contentLang.style.maxHeight = null;
+    contentLang.style.transform = 'scale(0)';
+  } else {
+    contentLang.style.maxHeight = contentLang.scrollHeight + 'px';
+    contentLang.style.transform = 'scale(1)';
+  }
+});
