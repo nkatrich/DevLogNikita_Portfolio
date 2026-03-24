@@ -49,7 +49,6 @@ export const translations = {
     decsTg: "I also have my own Telegram channel where I share my experiences with projects, what I’m learning, and how it all works. By checking out the channel, you’ll open up new opportunities for yourself.",
 
     // block of contact
-
     infoContact: "Interested, or do you have any questions? Please get in touch:",
     phone: "Tel: "
   },
@@ -102,7 +101,6 @@ export const translations = {
     decsTg: "Так же, у меня есть собственный Telegram канал, где я рассказываю свой опыт в проектах, что изучаю, рассказываю как это работает. Посмотрев канал, вы откроете для себя новые двери.",
 
     // block of contact
-
     infoContact: "Заинтересовались или есть какие либо вопросы? Пишите:",
     phone: "Телефон: "
   }
