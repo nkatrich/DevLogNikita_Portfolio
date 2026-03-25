@@ -12,7 +12,7 @@ export const translations = {
     certificates: "Certificates",
 
     // projs decs
-    decs1: "",
+    decs1: "Web-app for searching and viewing information about movies, TV series, and etc ",
     decs2: "Weather web-app",
     decs3: "Online furniture shop",
     decs4: "Interactive calculator",
@@ -64,7 +64,7 @@ export const translations = {
     certificates: "Сертификаты",
 
     // projs decs
-    decs1: "",
+    decs1: "Веб-приложение для поиска и просмотра информации о фильмах, сериалах и т. д.",
     decs2: "Веб-приложение погода",
     decs3: "Интернет магазин мебели",
     decs4: "Интерактивный калькулятор",

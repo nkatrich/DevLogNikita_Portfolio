@@ -329,15 +329,15 @@ section {
 }
 
 .card-of-project:nth-child(1) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/FairWeather_preview.webp);
+    background-image: url(../images/content-of-pages/preview_projects/FindTaste_preview.webp);
 }
 
 .card-of-project:nth-child(2) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/MEDEBOL_preview.webp);
+    background-image: url(../images/content-of-pages/preview_projects/FairWeather_preview.webp);
 }
 
 .card-of-project:nth-child(3) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/game-js-what-where-when_preview.webp);
+    background-image: url(../images/content-of-pages/preview_projects/MEDEBOL_preview.webp);
 }
 
 .card-of-project:nth-child(4) .div-img-of-project::before {
