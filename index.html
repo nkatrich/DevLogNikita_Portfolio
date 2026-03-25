@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./assets/styles/font.css">
     <link rel="stylesheet" href="./assets/styles/variables.css">
     <link rel="stylesheet" href="./assets/styles/main.css">
-    <script src="./assets/scripts/main.js" defer></script>
+    <script src="./assets/scripts/main.js" defer type="module"></script>
 </head>
 <body>
     <header class="header">
@@ -19,10 +19,10 @@
             <div class="div-logo-header-footer"><span class="logo-part-1">DevLog</span> <span class="logo-part-2">Nikita</span></div>
             <div class="navigation-header-footer">
                 <div class="dropdown">
-                    <button class="dropdown-btn">EN<img src="./assets/icons/flags/uk.svg" alt="England flag"></button>
+                    <button class="dropdown-btn">RU<img src="./assets/icons/flags/ru.svg" alt="Russian flag"></button>
                     <ul class="dropdown-content">
-                        <button type="button">EN<img src="./assets/icons/flags/uk.svg" alt="England flag"></button>
-                        <button type="button">RU<img src="./assets/icons/flags/ru.svg" alt="England flag"></button>
+                        <li><button type="button" data-lang="en">EN<img src="./assets/icons/flags/uk.svg" alt="England flag"></button></li>
+                        <li><button type="button" data-lang="ru">RU<img src="./assets/icons/flags/ru.svg" alt="England flag"></button></li>
                     </ul>
                 </div>
                 <div class="div-toggle-theme"><button type="button"><img src="./assets/icons/simpe_UI_elements/sun.svg" alt="Светлая иконка"><img src="./assets/icons/simpe_UI_elements/moon.svg" alt="Темная иконка"></button></div>
@@ -47,7 +47,7 @@
                             <div class="div-decs-of-project"><p class="p-decs-of-project" data-i18n="decs1">Веб-приложение для поиска и просмотра информации о фильмах, сериалах и т. д.</p></div>
                             <div class="div-project-stack"><h3 class="h3-project-stack" data-i18n="stack">Стек:</h3><div class="show-stack"><img src="./assets/icons/stack_tools/HTML.svg" alt="HTML лого"><img src="./assets/icons/stack_tools/CSS.svg" alt="CSS лого"><img src="./assets/icons/stack_tools/JavaScript.svg" alt="JavaScript лого"></div></div>
                             <div class="div-links-for-projects">
-                                <a href="https://findtaste.netlify.app/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт">Сайт</a>
+                                <a href="https://findtaste.netlify.app/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт"><span data-i18n="btnSite">Сайт</span></a>
                                 <a href="https://github.com/nkatrich/FindTaste" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/GitHub.svg" alt="GitHub">GitHub</a>
                                 <a href="https://www.figma.com/design/8FdM9mvinjvLnSwpw8KH5B/FindTaste?node-id=0-1&t=iOy9THUQyO0NJqHn-1" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/Figma.svg" alt="Figma">Figma</a>
                                 <a href="https://youtu.be/0pJ-qG4n-R8" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/YouTube.svg" alt="YouTube">YouTube</a>
@@ -59,7 +59,7 @@
                             <div class="div-decs-of-project"><p class="p-decs-of-project" data-i18n="decs2">Веб-приложение погода</p></div>
                             <div class="div-project-stack"><h3 class="h3-project-stack" data-i18n="stack">Стек:</h3><div class="show-stack"><img src="./assets/icons/stack_tools/HTML.svg" alt="HTML лого"><img src="./assets/icons/stack_tools/CSS.svg" alt="CSS лого"><img src="./assets/icons/stack_tools/JavaScript.svg" alt="JavaScript лого"></div></div>
                             <div class="div-links-for-projects">
-                                <a href="https://fairweatherru.netlify.app/" class="link-for-project" target="_blank" data-i18n="btnSite"><img src="./assets/icons/social_media/www.svg" alt="Live сайт">Сайт</a>
+                                <a href="https://fairweatherru.netlify.app/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт"><span data-i18n="btnSite">Сайт</span></a>
                                 <a href="https://github.com/nkatrich/FairWeather.git" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/GitHub.svg" alt="GitHub">GitHub</a>
                                 <a href="https://www.figma.com/design/cv3oD54oj7fc1oEyjO64qx/FairWeather?node-id=0-1&t=gfG1pM1WcqSZrcYA-1" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/Figma.svg" alt="Figma">Figma</a>
                                 <a href="https://youtu.be/zwrcWKunMgo" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/YouTube.svg" alt="YouTube">YouTube</a>
@@ -71,7 +71,7 @@
                             <div class="div-decs-of-project"><p class="p-decs-of-project" data-i18n="decs3">Интернет магазин мебели</p></div>
                             <div class="div-project-stack"><h3 class="h3-project-stack" data-i18n="stack">Стек:</h3><div class="show-stack"><img src="./assets/icons/stack_tools/HTML.svg" alt="HTML лого"><img src="./assets/icons/stack_tools/CSS.svg" alt="CSS лого"><img src="./assets/icons/stack_tools/JavaScript.svg" alt="JavaScript лого"></div></div>
                             <div class="div-links-for-projects">
-                                <a href="https://nkatrich.github.io/DevLogNikita-project-MEDEBOL/" class="link-for-project" target="_blank" data-i18n="btnSite"><img src="./assets/icons/social_media/www.svg" alt="Live сайт">Сайт</a>
+                                <a href="https://nkatrich.github.io/DevLogNikita-project-MEDEBOL/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт"><span data-i18n="btnSite">Сайт</span></a>
                                 <a href="https://github.com/nkatrich/DevLogNikita-project-MEDEBOL.git" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/GitHub.svg" alt="GitHub">GitHub</a>
                                 <a href="https://www.figma.com/design/XjpAA3WZzlKx5TC8C2X8qA/Medebol?node-id=0-1&t=vobnwlH47ONcPMFy-1" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/Figma.svg" alt="Figma">Figma</a>
                                 <a href="https://youtu.be/Ho4OpufFNeU?si=6LN16wN5VMyKrXPZ" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/YouTube.svg" alt="YouTube">YouTube</a>
@@ -83,7 +83,7 @@
                             <div class="div-decs-of-project"><p class="p-decs-of-project" data-i18n="decs4">Интерактивный калькулятор</p></div>
                             <div class="div-project-stack"><h3 class="h3-project-stack" data-i18n="stack">Стек:</h3><div class="show-stack"><img src="./assets/icons/stack_tools/HTML.svg" alt="HTML лого"><img src="./assets/icons/stack_tools/CSS.svg" alt="CSS лого"><img src="./assets/icons/stack_tools/JavaScript.svg" alt="JavaScript лого"></div></div>
                             <div class="div-links-for-projects">
-                                <a href="https://nkatrich.github.io/DevLogNikita-project-ToCalc/" class="link-for-project" target="_blank" data-i18n="btnSite"><img src="./assets/icons/social_media/www.svg" alt="Live сайт">Сайт</a>
+                                <a href="https://nkatrich.github.io/DevLogNikita-project-ToCalc/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт"><span data-i18n="btnSite">Сайт</span></a>
                                 <a href="https://github.com/nkatrich/DevLogNikita-project-ToCalc.git" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/GitHub.svg" alt="GitHub">GitHub</a>
                                 <a href="https://www.figma.com/design/wMY4rJEWBpptvkmkAFnxUE/To-Calc?node-id=0-1&t=AnmfVtbBYOpxS1NK-1" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/Figma.svg" alt="Figma">Figma</a>
                             </div>
@@ -94,7 +94,7 @@
                             <div class="div-decs-of-project"><p class="p-decs-of-project" data-i18n="decs5">Дисциплина и мотивация</p></div>
                             <div class="div-project-stack"><h3 class="h3-project-stack" data-i18n="stack">Стек:</h3><div class="show-stack"><img src="./assets/icons/stack_tools/HTML.svg" alt="HTML лого"><img src="./assets/icons/stack_tools/CSS.svg" alt="CSS лого"><img src="./assets/icons/stack_tools/JavaScript.svg" alt="JavaScript лого"></div></div>
                             <div class="div-links-for-projects">
-                                <a href="https://nkatrich.github.io/DevLogNikita-quotes-project/" class="link-for-project" target="_blank" data-i18n="btnSite"><img src="./assets/icons/social_media/www.svg" alt="Live сайт">Сайт</a>
+                                <a href="https://nkatrich.github.io/DevLogNikita-quotes-project/" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/www.svg" alt="Live сайт"><span data-i18n="btnSite">Сайт</span></a>
                                 <a href="https://github.com/nkatrich/DevLogNikita-quotes-project.git" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/GitHub.svg" alt="GitHub">GitHub</a>
                                 <a href="https://www.figma.com/design/GzuGOSirzLeE4fR9QtUpvy/Just-Quotes?node-id=0-1&t=PQmL5ZvvK6v8yeRe-1" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/Figma.svg" alt="Figma">Figma</a>
                                 <a href="https://youtu.be/eEiQl9KBCW4?si=HxikIZ1uMZ_PuZEf" class="link-for-project" target="_blank"><img src="./assets/icons/social_media/YouTube.svg" alt="YouTube">YouTube</a>

@@ -1,3 +1,5 @@
+import { translations } from "./translations.js";
+
 // vars
     // DOM vars
     const body = document.body;
@@ -118,7 +120,7 @@ document.addEventListener('pointermove', (e) => {
 divImgAboutMe.style.transform = `translateY(0)`;
 divImgAboutMe.style.opacity = 1;
 
-// change lang
+// drop-down menu for lang
 
 const langBtn = document.querySelector('.dropdown-btn');
 const contentLang = document.querySelector('.dropdown-content');
@@ -132,3 +134,42 @@ langBtn.addEventListener('click', () => {
     contentLang.style.transform = 'scale(1)';
   }
 });
+
+// change lang
+
+function changeLanguage(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerText = translations[lang][key];
+  });
+
+  document.documentElement.lang = lang;
+}
+
+const paramLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+changeLanguage(paramLang);
+insertFlag(paramLang);
+
+// change lang by btns
+
+document.addEventListener('click', (e) => {
+    const clicked = e.target.closest('button');
+    if (clicked) {
+        changeLanguage(clicked.dataset.lang);
+        insertFlag(clicked.dataset.lang);
+    } else {
+        contentLang.style.maxHeight = null;
+        contentLang.style.transform = 'scale(0)';
+    }
+});
+
+function insertFlag(lang) {
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    if (lang === 'en') {
+        dropdownBtn.innerHTML = 'EN<img src="./assets/icons/flags/uk.svg" alt="England flag">';
+    } else {
+        dropdownBtn.innerHTML = 'RU<img src="./assets/icons/flags/ru.svg" alt="England flag">';
+    }
+}
