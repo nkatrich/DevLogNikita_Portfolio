@@ -22,7 +22,7 @@ import { translations } from "./translations.js";
 document.addEventListener('scroll', () => {
     const currentPos = window.pageYOffset;
     
-    if (currentPos >= 200) {
+    if (currentPos >= 400) {
         header.classList.add('moved');
     }
     else {
