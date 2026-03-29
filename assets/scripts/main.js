@@ -95,9 +95,9 @@ function moveSliderProjects() {
 function moveSliderCertificates() {
     const currentPosSlider = slider[1].offsetWidth;
     if (currentIndexOfSliderCertificates == -1) {
-        currentIndexOfSliderCertificates = 1;
+        currentIndexOfSliderCertificates = 2;
     }
-    else if (currentIndexOfSliderCertificates == 2) {
+    else if (currentIndexOfSliderCertificates == 3) {
         currentIndexOfSliderCertificates = 0;
     }
     
