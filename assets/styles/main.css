@@ -4,11 +4,22 @@ body {
     font-family: 'Roboto', sans-serif;
     -webkit-tap-highlight-color: transparent;
     transition: background-color var(--main-transition), color var(--main-transition);
+    position: relative;
 }
 
 body.dark {
     background-color: var(--dark-color);
     color: var(--light-color);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#ebac0d00, #ebac0d2b);
+    z-index: -1;
 }
 
 .div-about-me h1, .list-of-skills li, .div-toggle-theme, .slider-btn-left-projects, .slider-btn-right-projects, .slider-btn-left-certificates, .slider-btn-right-certificates, .div-contacts-block-my-contacts a, .link-about-telegram, .link-for-project, .dropdown-content button {
