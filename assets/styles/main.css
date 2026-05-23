@@ -428,6 +428,7 @@ section {
 
 .div-links-for-projects {
     display: flex;
+    align-items: flex-end;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -443,6 +444,18 @@ section {
     align-items: center;
     gap: 5px;
     text-decoration: none;
+    height: 45px;
+}
+
+.link-for-project:nth-child(1) {
+    height: 65px;
+    font-size: clamp(20px, 1.8vw, 50px);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.link-for-project:nth-child(1) img {
+    height: 65px;
+    width: 65px;
 }
 
 .div-buttons-for-slider {
