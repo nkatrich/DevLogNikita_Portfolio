@@ -173,3 +173,149 @@ function insertFlag(lang) {
         dropdownBtn.innerHTML = 'RU<img src="./assets/icons/flags/ru.svg" alt="England flag">';
     }
 }
+
+// canvas effects
+
+(function () {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'ash-ember-canvas';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    let width, height, dpr;
+
+    function resize() {
+        dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    function rand(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    class Ash {
+        constructor() {
+            this.reset(true);
+        }
+        reset(initial) {
+            this.x = rand(0, width);
+            this.y = initial ? rand(0, height) : height + rand(0, 30);
+            this.size = rand(1, 3);
+            this.speedY = rand(0.15, 0.45);
+            this.swaySpeed = rand(0.3, 0.9);
+            this.swayAmount = rand(10, 40);
+            this.angle = rand(0, Math.PI * 2);
+            this.baseX = this.x;
+            this.opacity = rand(0.08, 0.35);
+            this.life = 0;
+            this.maxLife = rand(600, 1400);
+        }
+        update() {
+            this.life++;
+            this.angle += 0.01 * this.swaySpeed;
+            this.y -= this.speedY;
+            this.x = this.baseX + Math.sin(this.angle) * this.swayAmount;
+
+            if (this.y < -10 || this.life > this.maxLife) {
+                this.reset(false);
+                this.life = 0;
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(180, 180, 180, ${this.opacity})`;
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    class Ember {
+        constructor() {
+            this.reset(true);
+        }
+        reset(initial) {
+            this.x = rand(0, width);
+            this.y = initial ? rand(height * 0.4, height) : height + rand(0, 30);
+            this.size = rand(1.5, 3.5);
+            this.speedY = rand(0.4, 1.1);
+            this.swaySpeed = rand(0.5, 1.3);
+            this.swayAmount = rand(15, 50);
+            this.angle = rand(0, Math.PI * 2);
+            this.baseX = this.x;
+            this.flicker = rand(0, Math.PI * 2);
+            this.life = 0;
+            this.maxLife = rand(200, 400);
+            this.hue = rand(15, 35);
+        }
+        update() {
+            this.life++;
+            this.angle += 0.02 * this.swaySpeed;
+            this.flicker += 0.15;
+            this.y -= this.speedY;
+            this.x = this.baseX + Math.sin(this.angle) * this.swayAmount;
+
+            if (this.y < -10 || this.life > this.maxLife) {
+                this.reset(false);
+                this.life = 0;
+            }
+        }
+        draw() {
+            const progress = this.life / this.maxLife;
+            const opacity = Math.max(0, (5.6 - progress * 5.6)) * (5.6 + 0.4 * Math.sin(this.flicker));
+            const size = this.size * (1 - progress * 0.5);
+
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 4);
+            gradient.addColorStop(0, `hsla(${this.hue}, 100%, 60%, ${opacity})`);
+            gradient.addColorStop(1, `hsla(${this.hue}, 100%, 50%, 0)`);
+
+            ctx.beginPath();
+            ctx.fillStyle = gradient;
+            ctx.arc(this.x, this.y, size * 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.fillStyle = `hsla(${this.hue}, 100%, 70%, ${opacity})`;
+            ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    const ashCount = Math.min(50, Math.floor((width * height) / 22000));
+    const emberCount = Math.min(14, Math.floor((width * height) / 90000));
+
+    const ashParticles = Array.from({ length: ashCount }, () => new Ash());
+    const emberParticles = Array.from({ length: emberCount }, () => new Ember());
+
+    let visible = true;
+    document.addEventListener('visibilitychange', () => {
+        visible = document.visibilityState === 'visible';
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (!visible) return;
+
+        ctx.clearRect(0, 0, width, height);
+
+        ashParticles.forEach((p) => {
+            p.update();
+            p.draw();
+        });
+
+        emberParticles.forEach((p) => {
+            p.update();
+            p.draw();
+        });
+    }
+
+    animate();
+})();
