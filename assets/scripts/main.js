@@ -55,54 +55,65 @@ divToggleTheme.addEventListener('click', () => {
 })
 
 
-// slider
+// slider (универсальный, работает с любым количеством .slider внутри .block-of-slider)
 
-let currentIndexOfSliderProjects = 0;
-let currentIndexOfSliderCertificates = 0;
+function createSliderController(blockEl) {
+    const leftBtn = blockEl.querySelector('[class*="slider-btn-left"]');
+    const rightBtn = blockEl.querySelector('[class*="slider-btn-right"]');
+    let activeSlider = blockEl.querySelector('.slider:not([hidden])');
+    let currentIndex = 0;
 
-sliderBtnLeftProjects.addEventListener('click', () => {
-    currentIndexOfSliderProjects--;
-    moveSliderProjects();
-})
-
-sliderBtnRightProjects.addEventListener('click', () => {
-    currentIndexOfSliderProjects++;
-    moveSliderProjects();
-})
-
-sliderBtnLeftCertificates.addEventListener('click', () => {
-    currentIndexOfSliderCertificates--;
-    moveSliderCertificates();
-})
-
-sliderBtnRightCertificates.addEventListener('click', () => {
-    currentIndexOfSliderCertificates++;
-    moveSliderCertificates();
-})
-
-function moveSliderProjects() {
-    const currentPosSlider = slider[0].offsetWidth;
-    if (currentIndexOfSliderProjects == -1) {
-        currentIndexOfSliderProjects = 4;
+    function setActiveSlider(sliderEl) {
+        activeSlider = sliderEl;
+        currentIndex = 0;
+        activeSlider.style.transform = 'translateX(0px)';
     }
-    else if (currentIndexOfSliderProjects == 5) {
-        currentIndexOfSliderProjects = 0;
+
+    function move(direction) {
+        const count = activeSlider.children.length;
+        if (count === 0) return;
+
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = count - 1;
+        if (currentIndex >= count) currentIndex = 0;
+
+        const width = activeSlider.offsetWidth;
+        activeSlider.style.transform = `translateX(-${currentIndex * width}px)`;
     }
-    
-    slider[0].style.transform = `translateX(-${currentIndexOfSliderProjects * currentPosSlider}px)`;
+
+    leftBtn.addEventListener('click', () => move(-1));
+    rightBtn.addEventListener('click', () => move(1));
+
+    return { setActiveSlider };
 }
 
-function moveSliderCertificates() {
-    const currentPosSlider = slider[1].offsetWidth;
-    if (currentIndexOfSliderCertificates == -1) {
-        currentIndexOfSliderCertificates = 2;
-    }
-    else if (currentIndexOfSliderCertificates == 3) {
-        currentIndexOfSliderCertificates = 0;
-    }
-    
-    slider[1].style.transform = `translateX(-${currentIndexOfSliderCertificates * currentPosSlider}px)`;
-}
+const projectsBlock = document.querySelector('.my-projects .block-of-slider');
+const certificatesBlock = document.querySelector('.my-certificates .block-of-slider');
+
+const projectsSliderCtrl = createSliderController(projectsBlock);
+createSliderController(certificatesBlock);
+
+// toggle категорий (Web / GameDev)
+
+const toggleCategoryBtns = document.querySelectorAll('.toggle-category-btn');
+
+toggleCategoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+
+        toggleCategoryBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        projectsBlock.querySelectorAll('.slider').forEach(sliderEl => {
+            if (sliderEl.dataset.category === category) {
+                sliderEl.hidden = false;
+                projectsSliderCtrl.setActiveSlider(sliderEl);
+            } else {
+                sliderEl.hidden = true;
+            }
+        });
+    });
+});
 
 // img greeting
 

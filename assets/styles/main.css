@@ -277,6 +277,95 @@ section {
     }
 }
 
+.card {
+    /* color used to softly clip top and bottom of the .words container */
+    --bg-color: #111;
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
+    border-radius: 1.25rem;
+  }
+  .loader {
+    color: rgb(124, 124, 124);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 40px;
+    padding: 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 8px;
+  }
+  
+  .words {
+    overflow: hidden;
+    position: relative;
+  }
+  .words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      var(--bg-color) 10%,
+      transparent 30%,
+      transparent 70%,
+      var(--bg-color) 90%
+    );
+    z-index: 20;
+  }
+  
+  .word {
+    display: block;
+    height: 100%;
+    padding-left: 6px;
+    color: #956afa;
+    animation: spin_4991 4s infinite;
+  }
+  
+  @keyframes spin_4991 {
+    10% {
+      -webkit-transform: translateY(-102%);
+      transform: translateY(-102%);
+    }
+  
+    25% {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+  
+    35% {
+      -webkit-transform: translateY(-202%);
+      transform: translateY(-202%);
+    }
+  
+    50% {
+      -webkit-transform: translateY(-200%);
+      transform: translateY(-200%);
+    }
+  
+    60% {
+      -webkit-transform: translateY(-302%);
+      transform: translateY(-302%);
+    }
+  
+    75% {
+      -webkit-transform: translateY(-300%);
+      transform: translateY(-300%);
+    }
+  
+    85% {
+      -webkit-transform: translateY(-402%);
+      transform: translateY(-402%);
+    }
+  
+    100% {
+      -webkit-transform: translateY(-400%);
+      transform: translateY(-400%);
+    }
+  }
+
 .div-img-about-me {
     display: flex;
     justify-content: center;
@@ -332,28 +421,9 @@ section {
     width: 100%;
     height: 100%;
     background-size: cover;
+    background-image: var(--project-bg-image);
     border-radius: var(--border-radius-main-elements);
     z-index: 2;
-}
-
-.card-of-project:nth-child(1) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/FindTaste_preview.webp);
-}
-
-.card-of-project:nth-child(2) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/FairWeather_preview.webp);
-}
-
-.card-of-project:nth-child(3) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/MEDEBOL_preview.webp);
-}
-
-.card-of-project:nth-child(4) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/ToCalc_preview.webp);
-}
-
-.card-of-project:nth-child(5) .div-img-of-project::before {
-    background-image: url(../images/content-of-pages/preview_projects/JustQuotes_preview.webp);
 }
 
 .div-img-of-project::after {
@@ -363,8 +433,7 @@ section {
     width: 100%;
     height: 100%;
     background-color: var(--accent-color-transperent);
-    backdrop-filter: blur(4px);
-    border-radius: var(--border-radius-main-elements);
+    backdrop-filter: blur(5px);
     z-index: 3;
 }
 
@@ -454,8 +523,8 @@ section {
 }
 
 .link-for-project:nth-child(1) img {
-    height: 65px;
-    width: 65px;
+    height: 45px;
+    width: 45px;
 }
 
 .div-buttons-for-slider {
@@ -473,6 +542,40 @@ section {
 .slider-btn-left-projects img, .slider-btn-right-projects img, .slider-btn-left-certificates img, .slider-btn-right-certificates img {
     width: 60px;
     height: 40px
+}
+
+.div-toggle-projects-category {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.toggle-category-btn {
+    background-color: var(--accent2-color);
+    color: var(--light-color);
+    font-size: var(--p-inform);
+    font-weight: var(--font-weight-titles);
+    padding: 10px 20px;
+    border-radius: var(--border-radius-main-elements);
+    transition: background-color var(--main-transition), transform var(--main-transition);
+}
+
+.toggle-category-btn.is-active {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.toggle-category-btn:hover {
+    transform: scale(1.05);
+}
+
+.toggle-category-btn:active {
+    transform: scale(0.9);
+}
+
+.slider[hidden] {
+    display: none;
 }
 
 .block-of-my-skills {

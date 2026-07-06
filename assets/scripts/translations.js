@@ -11,12 +11,19 @@ export const translations = {
     skills: "Skills",
     certificates: "Certificates",
 
+    // btns change category
+    toggleWeb: "Web",
+    toggleGamedev: "GameDev",
+
     // projs decs
+    // web
     decs1: "Web-app for searching and viewing information about movies, TV series, and etc ",
     decs2: "Weather web-app",
     decs3: "Online furniture shop",
     decs4: "Interactive calculator",
     decs5: "Discipline and motivation",
+    // gamedev
+    GAMEDEVdecs1: "A story of a former special forces solider, that must escape from his past enemies and find his mum.",
 
     // stack
     stack: "Stack",
@@ -63,12 +70,19 @@ export const translations = {
     skills: "Навыки",
     certificates: "Сертификаты",
 
+    // btns change category
+    toggleWeb: "Веб",
+    toggleGamedev: "ГеймДев",
+
     // projs decs
+    // web
     decs1: "Веб-приложение для поиска и просмотра информации о фильмах, сериалах и т. д.",
     decs2: "Веб-приложение погода",
     decs3: "Интернет магазин мебели",
     decs4: "Интерактивный калькулятор",
     decs5: "Дисциплина и мотивация",
+    // gamedev
+    GAMEDEVdecs1: "История бывшего бойца спецназа, которому предстоит скрыться от врагов из своего прошлого и найти мать.",
 
     // stack
     stack: "Стек",
